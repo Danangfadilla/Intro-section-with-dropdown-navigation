@@ -1,0 +1,385 @@
+body {
+    font-family: 'Epilogue', sans-serif;
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 41%);
+    font-weight: 500;
+    padding: 1rem;
+    margin: 0;
+}
+
+@media (max-width: 375px) {
+    body {
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+h1,
+h2,
+h3 {
+    color: hsl(0, 0%, 8%);
+    font-weight: 700;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* SPECIFICS */
+
+
+/* HEADER */
+
+nav {
+    display: flex;
+    width: 100%-2rem;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+@media (max-width: 375px) {
+    nav {
+        padding: 1rem;
+    }
+}
+
+nav>* {
+    flex-grow: 1;
+}
+
+.logonoptions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.logo {
+    width: 4.5rem;
+    height: 1.5rem;
+}
+
+.items {
+    display: flex;
+    margin-left: 1.8rem;
+    margin-top: 0.18rem;
+}
+
+.item {
+    font-size: 0.8rem;
+    height: min-content;
+    margin-right: 1rem;
+}
+
+.item>div {
+    display: inline;
+}
+
+.items img {
+    height: 100%;
+    width: 9px;
+    margin-bottom: 0.05rem;
+}
+
+.toggler {
+    display: none;
+}
+
+.impstuff {
+    display: flex;
+    gap: 0.5rem;
+    flex-basis: auto;
+    flex-grow: 0;
+    font-size: 0.8rem;
+}
+
+.impstuff>* {
+    padding: 0.7rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+.impstuff>*:hover {
+    color: black;
+}
+
+.register {
+    border-radius: 0.8rem;
+    border: 1px solid hsl(0, 0%, 41%);
+}
+
+.register:hover {
+    border-color: black;
+}
+
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    max-height: 0;
+    background-color: white;
+    list-style-type: none;
+    white-space: nowrap;
+    padding: 1rem;
+    opacity: 0;
+    box-shadow: 0 7px 10px 4px #80808044;
+    transition: opacity 300ms ease-out, max-height 300ms;
+}
+
+.dropdown>* {
+    margin-bottom: 0.7rem;
+}
+
+@media (min-width: 375px) {
+    .has-dropdown:hover>div,
+    .item:last-child:hover {
+        color: black;
+    }
+    .has-dropdown:hover>.dropdown,
+    .dropdown:hover {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+.dropdown-1 {
+    right: 0;
+}
+
+.dropdown-1 img {
+    height: 0.9rem;
+    width: 0.9rem;
+    margin-bottom: -0.2rem;
+    margin-right: 0.8rem;
+}
+
+.overlay {
+    display: none;
+}
+
+.mobilenav {
+    display: none;
+}
+
+@media only screen and (max-width: 375px) {
+    /* MOBILE */
+    .overlay {
+        display: none;
+        z-index: 8;
+        position: fixed;
+        inset: 0;
+        background-color: #00000098;
+    }
+    .overlay-active {
+        display: block;
+    }
+    .mobilenav {
+        display: block;
+        overflow: auto;
+        background-color: hsl(0, 0%, 98%);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 9;
+        width: 53%;
+        padding: 1.5rem 1rem;
+        transform: translateX(50rem);
+        transition: transform 300ms cubic-bezier(0.4, 0, 1, 1);
+    }
+    .mobilenav>.img {
+        height: 2rem;
+        width: 2rem;
+        position: relative;
+        top: 0;
+        left: 82%;
+    }
+    .nav-active {
+        transform: translateX(0);
+    }
+    .mobilenav>*:nth-child(2) {
+        margin-top: 2rem;
+    }
+    .mobilenav>.item {
+        font-size: 1.2rem;
+        margin: 1.2rem 0;
+    }
+    .item>span {
+        margin-right: 0.8rem;
+    }
+    .item img {
+        height: 0.4rem;
+        width: 0.6rem;
+        margin-bottom: 0.05rem;
+    }
+    .mobilenav .impstuff {
+        display: block;
+        text-align: center;
+    }
+    .toggler {
+        flex-basis: auto;
+        flex-grow: 0;
+        display: block;
+        height: 20px;
+        width: 35px;
+    }
+    .items {
+        display: none;
+    }
+    .impstuff {
+        display: none;
+    }
+    .dropdown {
+        position: static;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        background-color: transparent;
+        padding: 0;
+        height: auto;
+        box-shadow: none;
+        opacity: 1;
+        transition: max-height 300ms ease-out;
+    }
+    .dropdown-active {
+        padding: 20px;
+        max-height: 500px;
+    }
+    .dropdown>* {
+        margin: 1rem 0;
+    }
+    .dropdown-1 img {
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: 0.2rem;
+        margin-bottom: -0.11rem;
+    }
+}
+
+
+/* HERO-DESKTOP */
+
+.hero {
+    height: 35rem;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 5fr 3fr;
+    grid-template-rows: auto;
+    grid-column-gap: 5rem;
+    grid-template-areas: 'one two' 'tre two';
+    margin: 2rem 5rem;
+}
+
+.hero-text {
+    grid-area: one;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text>h1 {
+    font-size: 4.7rem;
+}
+
+.hero-text p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2.5rem;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+    width: 70%;
+}
+
+button.action {
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    color: hsl(0, 0%, 98%);
+    font-size: 1rem;
+    font-weight: 700;
+    width: max-content;
+    background-color: hsl(0, 0%, 8%);
+    border: none;
+    transition: background-color 300ms ease-out;
+}
+
+button.action:hover {
+    background-color: hsl(0, 0%, 98%);
+    border: 1px solid hsl(0, 0%, 8%);
+    color: black;
+}
+
+.hero-img {
+    height: 35rem;
+    grid-area: two;
+}
+
+.hero-otherstuff {
+    display: grid;
+    grid-auto-flow: column;
+    grid-area: tre;
+    grid-gap: 3rem;
+    padding-right: 3rem;
+}
+
+.hero-otherstuff>.img {
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-otherstuff img {
+    height: 18px;
+}
+
+@media (max-width: 375px) {
+    /* HERO MOBILE */
+    .hero {
+        height: auto;
+        text-align: center;
+        padding: 0;
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+        grid-template-areas: 'two' 'one' 'tre';
+        margin: 2rem 0;
+        margin-bottom: 1rem;
+    }
+    .hero-img {
+        height: 15rem;
+    }
+    .hero-text {
+        text-align: center;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+        margin: 2.5rem 0.5rem;
+    }
+    .hero p {
+        text-align: center;
+        width: 90%;
+        margin: 0 1rem;
+        margin-bottom: 1.7rem;
+    }
+    button.action {
+        margin: 0 auto;
+    }
+    .hero-otherstuff {
+        grid-gap: 1.5rem;
+        padding: 0;
+        margin: 1.5rem 1rem;
+    }
+    .hero-otherstuff img {
+        height: 20px;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    /* position: static; */
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
